@@ -3,11 +3,13 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import agencyRoutes from './routes/agencies';
 import categoryRoutes from './routes/categories';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const app = express();
 const PORT = 5000;
-const MONGO_URI = 'mongodb://localhost:27017/BestDevShop';
-
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/agency-directory';
 app.use(cors());
 app.use(express.json());
 
